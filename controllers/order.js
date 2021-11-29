@@ -52,14 +52,14 @@ export const read = (req, res) => {
 }
 export const remove = (req, res) => {
     let order = req.order;
-    order.remove((err, deletedOrder) => {
+    order.remove((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: "Không xoá được đơn hàng!"
             });
         }
         res.json({
-            deletedOrder,
+            data,
             message: "Xoá đơn hàng thành công"
         })
     })

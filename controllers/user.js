@@ -28,14 +28,14 @@ export const read = (req, res) => {
 }
 export const remove = (req, res) => {
     let user = req.profile;
-    user.remove((err, deletedUser) => {
+    user.remove((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: "Xoá không thành công!"
             })
         }
         res.json({
-            deletedUser,
+            data,
             message: "Xoá User thành công"
         })
     })
